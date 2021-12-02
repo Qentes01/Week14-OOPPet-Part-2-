@@ -20,7 +20,27 @@ namespace OOPCar
                 odometer = 0;
                 fuel = 60;
                 Console.WriteLine($"{mark} {model} {regNumber} has been created.");
+            }
 
+            public int Fuel
+            {
+                get { return fuel; }
+            }
+
+            public void Drive()
+            {
+                fuel -= 5;
+                odometer += 100;
+                Console.WriteLine("Vroom-vroom");
+            }
+            public void ShowCarData()
+            {
+                Console.WriteLine($"Mark: {mark}");
+                Console.WriteLine($"Model: {model}");
+                Console.WriteLine($"Registration number: {regNumber}");
+                Console.WriteLine($"Color: {color}");
+                Console.WriteLine($"odometer: {odometer}");
+                Console.WriteLine($"Fuel: {Fuel}");
             }
         }
         
@@ -29,7 +49,12 @@ namespace OOPCar
     
         static void Main(string[] args)
         {
-            Car myCar = new Car("porsche", "Panamera", "123qwe", "Black");
+            Car myCar = new Car("Porsche", "Panamera", "LOR582", "Black");
+            while (myCar.Fuel > 0)
+            {
+                myCar.Drive();
+            }
+            myCar.ShowCarData();
         }
     }
 }
